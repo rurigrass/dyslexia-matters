@@ -7,10 +7,10 @@ const Logo = styled.h1`
     margin-left: 2rem;
     position: relative;
     z-index: 2;
-    background: --darkBlue;
+    background: var(--darkBlue);
     transform: skew(-7deg);
     a {
-        color: --white;
+        color: var(--white);
         text-decoration: none;
         text-transform: uppercase;
         padding: 0.5rem 1rem;
@@ -19,7 +19,7 @@ const Logo = styled.h1`
 
 const HeaderStyles = styled.header`
     .bar{
-        border-bottom: 10px solid var(--black, black);
+        border-bottom: 10px solid var(--orange, black);
         display: grid;
         grid-template-columns: auto 1fr;
         justify-content: space-between;
@@ -29,7 +29,7 @@ const HeaderStyles = styled.header`
     .sub-bar{
         display: grid;
         grid-template-columns: 1fr auto;
-        border-bottom: 1px solid var(--black, black);
+        border-bottom: 1px solid var(--pink, black);
     }
 `
 
