@@ -17,6 +17,10 @@
   "[javascriptreact]": {
     "editor.formatOnSave": false
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    // "editor.tabSize": 2,
+  },
   "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true

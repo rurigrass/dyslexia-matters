@@ -24,7 +24,16 @@ export default function Home() {
           User: _allUsersMeta {
             count
           }
+          UserImage: _allUserImagesMeta {
+            count
+          }
           Lesson: _allLessonsMeta {
+            count
+          }
+          Product: _allProductsMeta {
+            count
+          }
+          ProductImage: _allProductImagesMeta {
             count
           }
         }

@@ -39,12 +39,15 @@ const Form = styled.form`
   button,
   input[type='submit'] {
     width: auto;
-    background: red;
+    background: var(--darkBlue);
     color: white;
     border: 0;
     font-size: 2rem;
     font-weight: 600;
     padding: 0.5rem 1.2rem;
+    :hover{
+      cursor: pointer;
+    }
   }
   fieldset {
     border: 0;
