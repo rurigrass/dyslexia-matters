@@ -3,3 +3,5 @@ export default function HomePage() {
     <p>Hello!</p>
   );
 }
+
+// export { default } from './products'

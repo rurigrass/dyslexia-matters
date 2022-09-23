@@ -16,7 +16,7 @@ type UserInputs = {
 
 type Inputs = ProductInputs & UserInputs;
 
-export default function useForm(initial: Inputs) {
+export default function useForm(initial: Inputs = {}) {
     //create a state object for our inputs
     const [inputs, setInputs] = useState(initial);
     const initialValues = Object.values(initial).join("");
