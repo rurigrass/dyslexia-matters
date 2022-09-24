@@ -16,7 +16,7 @@ export default function Product({ product }) {
         {/* add buttons to edit and delete item*/}
         <div className="buttonList">
             <Link href={{
-                pathname: 'update',
+                pathname: '/update',
                 query: {
                     id: product.id
                 }
