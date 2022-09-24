@@ -46,7 +46,6 @@ export default function CreateProduct() {
         variables: inputs,
         refetchQueries: [{ query: ALL_PRODUCTS_QUERY }]
     });
-    console.log(createProduct);
 
     return (
         <Form onSubmit={async (e) => {
