@@ -1,13 +1,14 @@
 import Link from "next/link";
+import SignOut from "./SignOut";
 import NavStyles from "./styles/NavStyles";
 import { useUser } from "./User";
 
 export default function Nav() {
     //check who the user is
-    //TODO add userType 'tutor' 'student' etc
     const user = useUser()
     console.log(user);
 
+    //TODO add userType 'tutor' 'student' etc
     //show all the links in the header
     return <NavStyles>
         <Link href="/student-hub">Student Hub</Link>
@@ -25,8 +26,10 @@ export default function Nav() {
                     <Link href="/tutor-hub">Tutor Hub</Link>
                     <Link href="/sell">Sell Product</Link>
                     <Link href="/account">Account</Link>
+                    <SignOut />
                 </>
             )
         }
     </NavStyles>
+
 }
