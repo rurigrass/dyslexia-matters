@@ -10,6 +10,7 @@ export const User = list({
     name: text({ isRequired: true }),
     email: text({ isRequired: true, isUnique: true }),
     userType: select({
+      isRequired: true,
       options: [
         { label: 'Tutor', value: 'Tutor' },
         { label: 'Student', value: 'Student' },

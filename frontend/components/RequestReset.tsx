@@ -4,8 +4,8 @@ import useForm from "../lib/useForm";
 import DisplayError from "./ErrorMessage";
 import Form from "./styles/Form";
 
-const REQUEST_RESET = gql`
-    mutation REQUEST_RESET ($email: String!) {
+const REQUEST_RESET_MUTATION = gql`
+    mutation REQUEST_RESET_MUTATION ($email: String!) {
         sendUserPasswordResetLink(email: $email) {
             code
             message
@@ -18,7 +18,7 @@ export default function RequestReset() {
         email: "",
     });
 
-    const [signup, { data, loading, error }] = useMutation(REQUEST_RESET, {
+    const [signup, { data, loading, error }] = useMutation(REQUEST_RESET_MUTATION, {
         variables: inputs,
         //refetch the currently logged in user
         // refetchQueries: [{ query: CURRENT_USER_QUERY }]
@@ -47,7 +47,7 @@ export default function RequestReset() {
             <fieldset>
                 {data?.sendUserPasswordResetLink === null && (
                     <p>
-                        Success! Check youe email for a link
+                        Success! Check your email for a link
                     </p>
                 )}
                 <label htmlFor="email">

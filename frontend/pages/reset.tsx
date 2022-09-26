@@ -1,4 +1,5 @@
-import RequestReset from "../components/RequestReset"
+import RequestReset from "../components/RequestReset";
+import Reset from "../components/Reset";
 
 export default function ResetPage({ query }) {
 
@@ -15,6 +16,7 @@ export default function ResetPage({ query }) {
             <p>
                 RESET YOUR PASSWORD {query.token}
             </p>
+            <Reset token={query.token} />
         </div>
     )
 }

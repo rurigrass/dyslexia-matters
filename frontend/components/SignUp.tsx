@@ -45,9 +45,7 @@ export default function SignUp() {
 
     if (data?.createUser) {
         return (
-            <>
-                <p>Signed up with {data.createUser.email} - Please go ahead and sign in here <button><a href="/signin">Sign In</a></button></p>
-            </>
+            <p>Signed up with {data.createUser.email} - Please go ahead and sign in here <button><a href="/signin">Sign In</a></button></p>
         )
     }
 
