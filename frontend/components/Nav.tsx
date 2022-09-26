@@ -6,7 +6,6 @@ import { useUser } from "./User";
 export default function Nav() {
     //check who the user is
     const user = useUser()
-    console.log(user);
 
     //TODO add userType 'tutor' 'student' etc
     //show all the links in the header

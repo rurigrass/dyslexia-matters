@@ -9,6 +9,7 @@ type ProductInputs = {
 
 type UserInputs = {
     name?: string;
+    userType?: string;
     email?: string;
     password?: string;
     token?: string;
