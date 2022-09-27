@@ -27,13 +27,16 @@ export default function Reset({ token }) {
         password: '',
         token,
     });
+
     const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
         variables: inputs,
     });
+
     const successfulError = data?.redeemUserPasswordResetToken?.code
         ? data?.redeemUserPasswordResetToken
         : undefined;
     console.log(error);
+
     async function handleSubmit(e) {
         e.preventDefault(); // stop the form from submitting
         console.log(inputs);

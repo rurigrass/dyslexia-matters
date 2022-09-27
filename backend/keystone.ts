@@ -11,6 +11,7 @@ import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
+import { sendPasswordResetEmail } from './lib/mail';
 // import { sendPasswordResetEmail } from './lib/mail';
 
 const databaseURL =
@@ -33,8 +34,7 @@ const { withAuth } = createAuth({
     async sendToken(args) {
       // send the email
       console.log(args);
-
-      // await sendPasswordResetEmail(args.token, args.identity);
+      await sendPasswordResetEmail(args.token, args.identity);
     },
   },
 });
