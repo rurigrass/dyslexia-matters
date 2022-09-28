@@ -8,10 +8,11 @@ type ProductInputs = {
 };
 
 type UserInputs = {
-    name?: string;
     userType?: string;
     email?: string;
     password?: string;
+    firstName?: string;
+    lastName?: string;
     token?: string;
 };
 

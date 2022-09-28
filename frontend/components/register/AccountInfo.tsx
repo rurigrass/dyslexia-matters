@@ -1,13 +1,12 @@
 export default function AccountInfo({ handleChange, inputs }) {
 
     return (
-        <>
+        <fieldset>
             <label htmlFor="userType">
                 I am a
                 <select
                     required
                     name="userType"
-                    placeholder="Your Name"
                     value={inputs.userType}
                     onChange={handleChange}
                 >
@@ -40,6 +39,6 @@ export default function AccountInfo({ handleChange, inputs }) {
                     onChange={handleChange}
                 />
             </label>
-        </>
+        </fieldset>
     )
 }

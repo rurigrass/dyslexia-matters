@@ -71,7 +71,6 @@ export default function SignUp() {
                     <select
                         required
                         name="userType"
-                        placeholder="Your Name"
                         value={inputs.userType}
                         onChange={handleChange}
                     >
