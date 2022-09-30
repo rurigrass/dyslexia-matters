@@ -60,7 +60,7 @@ export default function SignUp() {
                         required
                         type="text"
                         name="name"
-                        placeholder="Your Name"
+                        placeholder="Your User Name"
                         autoComplete="name"
                         value={inputs.name}
                         onChange={handleChange}

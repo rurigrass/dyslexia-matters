@@ -7,7 +7,10 @@ export const User = list({
   // access:
   // ui
   fields: {
-    name: text({ isRequired: true }),
+    name: text({ isRequired: true, isUnique: true }),
+    // userName: text({ isRequired: true, isUnique: true }),
+    // firstName: text({ isRequired: true }),
+    // lastName: text({ isRequired: true }),
     email: text({ isRequired: true, isUnique: true }),
     userType: select({
       isRequired: true,
@@ -15,6 +18,11 @@ export const User = list({
         { label: 'Tutor', value: 'Tutor' },
         { label: 'Student', value: 'Student' },
       ],
+    }),
+    description: text({
+      ui: {
+        displayMode: 'textarea',
+      },
     }),
     photo: relationship({
       ref: 'UserImage.user',

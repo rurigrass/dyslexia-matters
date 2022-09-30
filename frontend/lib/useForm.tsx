@@ -8,11 +8,13 @@ type ProductInputs = {
 };
 
 type UserInputs = {
+    name?: string;
     userType?: string;
     email?: string;
     password?: string;
-    firstName?: string;
-    lastName?: string;
+    // firstName?: string;
+    // lastName?: string;
+    // description?: string;
     token?: string;
 };
 

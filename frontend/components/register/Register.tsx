@@ -14,7 +14,8 @@ export default function Register() {
         email: "",
         password: "",
         firstName: "",
-        lastName: ""
+        lastName: "",
+        description: ""
     });
 
     const formTitles = ["Account Information", "Personal Information", "Other"];
@@ -24,10 +25,12 @@ export default function Register() {
         pageDisplay = <AccountInfo handleChange={handleChange} inputs={inputs} />
     } else if (page === 1) {
         pageDisplay = <PersonalInfo handleChange={handleChange} inputs={inputs} />
+    } else {
+        pageDisplay = <PersonalInfo handleChange={handleChange} inputs={inputs} />
     }
 
-    console.log(inputs);
-    console.log(page);
+    // console.log(inputs);
+    // console.log(page);
 
 
     return (
@@ -41,7 +44,7 @@ export default function Register() {
                         setPage((currPage) => currPage - 1);
                     }}
                 >
-                    Prev
+                    ⬅ Prev
                 </button>
                 <button
                     onClick={() => {
@@ -52,7 +55,7 @@ export default function Register() {
                         }
                     }}
                 >
-                    {page === formTitles.length - 1 ? "Submit" : "Next"}
+                    {page === formTitles.length - 1 ? "Submit" : "Next ⮕"}
                 </button>
             </div>
 
