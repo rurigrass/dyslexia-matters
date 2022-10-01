@@ -27,7 +27,7 @@ const { withAuth } = createAuth({
   identityField: 'email',
   secretField: 'password',
   initFirstItem: {
-    fields: ['name', 'email', 'password'],
+    fields: ['userName', 'email', 'password'],
   },
   // TODO: Add in initial roles here
   passwordResetLink: {
@@ -72,7 +72,7 @@ export default withAuth(
         !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id name email',
+      User: 'id userName email',
     }),
     // TODO add session values
   })

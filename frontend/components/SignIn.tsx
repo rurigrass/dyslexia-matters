@@ -11,7 +11,7 @@ const SIGNIN_MUTATION = gql`
             ... on UserAuthenticationWithPasswordSuccess {
                 item {
                     id
-                    name
+                    userName
                     email
                 }
             }

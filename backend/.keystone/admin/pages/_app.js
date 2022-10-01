@@ -180,7 +180,7 @@ const lazyMetadataQuery = {
                     kind: 'SelectionSet',
                     selections: [
                       { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     ],
                   },
                 },
@@ -198,7 +198,7 @@ export default function App({ Component, pageProps }) {
     <Core>
       <KeystoneProvider
         adminConfig={adminConfig}
-        adminMetaHash="h1n03d"
+        adminMetaHash="1rxpoy8"
         fieldViews={fieldViews}
         lazyMetadataQuery={lazyMetadataQuery}
       >

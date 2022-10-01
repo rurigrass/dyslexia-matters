@@ -7,7 +7,7 @@ export const CURRENT_USER_QUERY = gql`
         authenticatedItem {
             ... on User {
                 id
-                name
+                userName
                 email
                 userType
                 # query the cart once we have it

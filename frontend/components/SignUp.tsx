@@ -6,15 +6,15 @@ import Form from "./styles/Form";
 import { CURRENT_USER_QUERY } from "./User";
 
 const SIGNUP_MUTATION = gql`
-    mutation SIGNUP_MUTATION ($name: String!, $userType: String!, $email: String!, $password: String!) {
+    mutation SIGNUP_MUTATION ($userName: String!, $userType: String!, $email: String!, $password: String!) {
         createUser(data: {
-            name: $name
+            userName: $userName
             userType: $userType
             email: $email
             password: $password
         }) {
             id
-            name
+            userName
             userType
             email
         }
@@ -23,7 +23,7 @@ const SIGNUP_MUTATION = gql`
 
 export default function SignUp() {
     const { inputs, handleChange, resetForm } = useForm({
-        name: "",
+        userName: "",
         userType: "",
         email: "",
         password: ""
@@ -55,14 +55,14 @@ export default function SignUp() {
             <DisplayError error={error}></DisplayError>
             <fieldset>
                 <label htmlFor="name">
-                    Name
+                    User Name
                     <input
                         required
                         type="text"
-                        name="name"
+                        name="userName"
                         placeholder="Your User Name"
                         autoComplete="name"
-                        value={inputs.name}
+                        value={inputs.userName}
                         onChange={handleChange}
                     />
                 </label>

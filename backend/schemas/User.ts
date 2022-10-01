@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-
 import { list } from '@keystone-next/keystone/schema';
 import { text, password, relationship, select } from '@keystone-next/fields';
 
@@ -7,8 +5,8 @@ export const User = list({
   // access:
   // ui
   fields: {
-    name: text({ isRequired: true, isUnique: true }),
-    // userName: text({ isRequired: true, isUnique: true }),
+    // name: text({ isRequired: true, isUnique: true }),
+    userName: text({ isRequired: true, isUnique: true }),
     // firstName: text({ isRequired: true }),
     // lastName: text({ isRequired: true }),
     email: text({ isRequired: true, isUnique: true }),
@@ -19,11 +17,11 @@ export const User = list({
         { label: 'Student', value: 'Student' },
       ],
     }),
-    description: text({
-      ui: {
-        displayMode: 'textarea',
-      },
-    }),
+    // description: text({
+    //   ui: {
+    //     displayMode: 'textarea',
+    //   },
+    // }),
     photo: relationship({
       ref: 'UserImage.user',
       ui: {
@@ -33,6 +31,7 @@ export const User = list({
         inlineEdit: { fields: ['image', 'altText'] },
       },
     }),
+    //
     // lessons: relationship({
     //   ref: 'Lesson.subject',
     // }),
@@ -41,7 +40,7 @@ export const User = list({
   },
   ui: {
     listView: {
-      initialColumns: ['name'],
+      initialColumns: ['userName'],
     },
   },
 });

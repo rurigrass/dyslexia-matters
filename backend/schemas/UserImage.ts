@@ -21,7 +21,7 @@ export const UserImage = list({
   },
   ui: {
     listView: {
-      initialColumns: ['user', 'altText', 'image'],
+      initialColumns: ['image', 'altText', 'user'],
     },
   },
 });

@@ -8,10 +8,9 @@ input UserImageRelateToOneInput {
 """ A keystone list """
 type User {
   id: ID!
-  name: String
+  userName: String
   email: String
   userType: String
-  description: String
   photo: UserImage
   password_is_set: Boolean
   passwordResetToken_is_set: Boolean
@@ -29,24 +28,24 @@ input UserWhereInput {
   id_not: ID
   id_in: [ID]
   id_not_in: [ID]
-  name: String
-  name_not: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  name_i: String
-  name_not_i: String
-  name_contains_i: String
-  name_not_contains_i: String
-  name_starts_with_i: String
-  name_not_starts_with_i: String
-  name_ends_with_i: String
-  name_not_ends_with_i: String
-  name_in: [String]
-  name_not_in: [String]
+  userName: String
+  userName_not: String
+  userName_contains: String
+  userName_not_contains: String
+  userName_starts_with: String
+  userName_not_starts_with: String
+  userName_ends_with: String
+  userName_not_ends_with: String
+  userName_i: String
+  userName_not_i: String
+  userName_contains_i: String
+  userName_not_contains_i: String
+  userName_starts_with_i: String
+  userName_not_starts_with_i: String
+  userName_ends_with_i: String
+  userName_not_ends_with_i: String
+  userName_in: [String]
+  userName_not_in: [String]
   email: String
   email_not: String
   email_contains: String
@@ -83,24 +82,6 @@ input UserWhereInput {
   userType_not_ends_with_i: String
   userType_in: [String]
   userType_not_in: [String]
-  description: String
-  description_not: String
-  description_contains: String
-  description_not_contains: String
-  description_starts_with: String
-  description_not_starts_with: String
-  description_ends_with: String
-  description_not_ends_with: String
-  description_i: String
-  description_not_i: String
-  description_contains_i: String
-  description_not_contains_i: String
-  description_starts_with_i: String
-  description_not_starts_with_i: String
-  description_ends_with_i: String
-  description_not_ends_with_i: String
-  description_in: [String]
-  description_not_in: [String]
   photo: UserImageWhereInput
   photo_is_null: Boolean
   password_is_set: Boolean
@@ -147,14 +128,12 @@ input UserWhereUniqueInput {
 enum SortUsersBy {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
+  userName_ASC
+  userName_DESC
   email_ASC
   email_DESC
   userType_ASC
   userType_DESC
-  description_ASC
-  description_DESC
   photo_ASC
   photo_DESC
   passwordResetIssuedAt_ASC
@@ -168,10 +147,9 @@ enum SortUsersBy {
 }
 
 input UserUpdateInput {
-  name: String
+  userName: String
   email: String
   userType: String
-  description: String
   photo: UserImageRelateToOneInput
   password: String
   passwordResetToken: String
@@ -188,10 +166,9 @@ input UsersUpdateInput {
 }
 
 input UserCreateInput {
-  name: String
+  userName: String
   email: String
   userType: String
-  description: String
   photo: UserImageRelateToOneInput
   password: String
   passwordResetToken: String
@@ -1074,7 +1051,7 @@ enum PasswordAuthErrorCode {
 }
 
 input CreateInitialUserInput {
-  name: String
+  userName: String
   email: String
   password: String
 }

@@ -21,24 +21,24 @@ export type UserWhereInput = {
   readonly id_not?: Scalars['ID'] | null;
   readonly id_in?: ReadonlyArray<Scalars['ID'] | null> | null;
   readonly id_not_in?: ReadonlyArray<Scalars['ID'] | null> | null;
-  readonly name?: Scalars['String'] | null;
-  readonly name_not?: Scalars['String'] | null;
-  readonly name_contains?: Scalars['String'] | null;
-  readonly name_not_contains?: Scalars['String'] | null;
-  readonly name_starts_with?: Scalars['String'] | null;
-  readonly name_not_starts_with?: Scalars['String'] | null;
-  readonly name_ends_with?: Scalars['String'] | null;
-  readonly name_not_ends_with?: Scalars['String'] | null;
-  readonly name_i?: Scalars['String'] | null;
-  readonly name_not_i?: Scalars['String'] | null;
-  readonly name_contains_i?: Scalars['String'] | null;
-  readonly name_not_contains_i?: Scalars['String'] | null;
-  readonly name_starts_with_i?: Scalars['String'] | null;
-  readonly name_not_starts_with_i?: Scalars['String'] | null;
-  readonly name_ends_with_i?: Scalars['String'] | null;
-  readonly name_not_ends_with_i?: Scalars['String'] | null;
-  readonly name_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly name_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly userName?: Scalars['String'] | null;
+  readonly userName_not?: Scalars['String'] | null;
+  readonly userName_contains?: Scalars['String'] | null;
+  readonly userName_not_contains?: Scalars['String'] | null;
+  readonly userName_starts_with?: Scalars['String'] | null;
+  readonly userName_not_starts_with?: Scalars['String'] | null;
+  readonly userName_ends_with?: Scalars['String'] | null;
+  readonly userName_not_ends_with?: Scalars['String'] | null;
+  readonly userName_i?: Scalars['String'] | null;
+  readonly userName_not_i?: Scalars['String'] | null;
+  readonly userName_contains_i?: Scalars['String'] | null;
+  readonly userName_not_contains_i?: Scalars['String'] | null;
+  readonly userName_starts_with_i?: Scalars['String'] | null;
+  readonly userName_not_starts_with_i?: Scalars['String'] | null;
+  readonly userName_ends_with_i?: Scalars['String'] | null;
+  readonly userName_not_ends_with_i?: Scalars['String'] | null;
+  readonly userName_in?: ReadonlyArray<Scalars['String'] | null> | null;
+  readonly userName_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly email?: Scalars['String'] | null;
   readonly email_not?: Scalars['String'] | null;
   readonly email_contains?: Scalars['String'] | null;
@@ -75,24 +75,6 @@ export type UserWhereInput = {
   readonly userType_not_ends_with_i?: Scalars['String'] | null;
   readonly userType_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly userType_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly description?: Scalars['String'] | null;
-  readonly description_not?: Scalars['String'] | null;
-  readonly description_contains?: Scalars['String'] | null;
-  readonly description_not_contains?: Scalars['String'] | null;
-  readonly description_starts_with?: Scalars['String'] | null;
-  readonly description_not_starts_with?: Scalars['String'] | null;
-  readonly description_ends_with?: Scalars['String'] | null;
-  readonly description_not_ends_with?: Scalars['String'] | null;
-  readonly description_i?: Scalars['String'] | null;
-  readonly description_not_i?: Scalars['String'] | null;
-  readonly description_contains_i?: Scalars['String'] | null;
-  readonly description_not_contains_i?: Scalars['String'] | null;
-  readonly description_starts_with_i?: Scalars['String'] | null;
-  readonly description_not_starts_with_i?: Scalars['String'] | null;
-  readonly description_ends_with_i?: Scalars['String'] | null;
-  readonly description_not_ends_with_i?: Scalars['String'] | null;
-  readonly description_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly description_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly photo?: UserImageWhereInput | null;
   readonly photo_is_null?: Scalars['Boolean'] | null;
   readonly password_is_set?: Scalars['Boolean'] | null;
@@ -155,14 +137,12 @@ export type UserWhereUniqueInput = {
 export type SortUsersBy =
   | 'id_ASC'
   | 'id_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
+  | 'userName_ASC'
+  | 'userName_DESC'
   | 'email_ASC'
   | 'email_DESC'
   | 'userType_ASC'
   | 'userType_DESC'
-  | 'description_ASC'
-  | 'description_DESC'
   | 'photo_ASC'
   | 'photo_DESC'
   | 'passwordResetIssuedAt_ASC'
@@ -175,10 +155,9 @@ export type SortUsersBy =
   | 'magicAuthRedeemedAt_DESC';
 
 export type UserUpdateInput = {
-  readonly name?: Scalars['String'] | null;
+  readonly userName?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly userType?: Scalars['String'] | null;
-  readonly description?: Scalars['String'] | null;
   readonly photo?: UserImageRelateToOneInput | null;
   readonly password?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
@@ -195,10 +174,9 @@ export type UsersUpdateInput = {
 };
 
 export type UserCreateInput = {
-  readonly name?: Scalars['String'] | null;
+  readonly userName?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly userType?: Scalars['String'] | null;
-  readonly description?: Scalars['String'] | null;
   readonly photo?: UserImageRelateToOneInput | null;
   readonly password?: Scalars['String'] | null;
   readonly passwordResetToken?: Scalars['String'] | null;
@@ -663,7 +641,7 @@ export type PasswordAuthErrorCode =
   | 'SECRET_MISMATCH';
 
 export type CreateInitialUserInput = {
-  readonly name?: Scalars['String'] | null;
+  readonly userName?: Scalars['String'] | null;
   readonly email?: Scalars['String'] | null;
   readonly password?: Scalars['String'] | null;
 };
@@ -696,10 +674,9 @@ export type UserListTypeInfo = {
   key: 'User';
   fields:
     | 'id'
-    | 'name'
+    | 'userName'
     | 'email'
     | 'userType'
-    | 'description'
     | 'photo'
     | 'password'
     | 'passwordResetToken'
@@ -710,10 +687,9 @@ export type UserListTypeInfo = {
     | 'magicAuthRedeemedAt';
   backing: {
     readonly id: string;
-    readonly name?: string | null;
+    readonly userName?: string | null;
     readonly email?: string | null;
     readonly userType?: string | null;
-    readonly description?: string | null;
     readonly photo?: string | null;
     readonly password?: string | null;
     readonly passwordResetToken?: string | null;
