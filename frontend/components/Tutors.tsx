@@ -8,7 +8,7 @@ const ALL_USERS_QUERY = gql`
     userType: "Tutor"
   }) {
     id
-    name
+    userName
     email
     userType
     photo{
@@ -37,7 +37,7 @@ export default function Users() {
     <TutorListStyles>
       {data.allUsers.map((user, key) =>
         <div key={key}>
-          <p>{user.name}</p>
+          <p>{user.userName}</p>
         </div>)}
     </TutorListStyles>
   </div>

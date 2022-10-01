@@ -15,6 +15,18 @@ export default function AccountInfo({ handleChange, inputs }) {
                     <option value="Tutor">Tutor</option>
                 </select>
             </label>
+            <label htmlFor="userName">
+                User Name
+                <input
+                    required
+                    type="text"
+                    name="userName"
+                    placeholder="User Name"
+                    autoComplete="username"
+                    value={inputs.userName}
+                    onChange={handleChange}
+                />
+            </label>
             <label htmlFor="email">
                 Email
                 <input

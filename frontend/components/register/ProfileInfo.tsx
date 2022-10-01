@@ -4,7 +4,7 @@ export default function ProfileInfo({ handleChange, inputs }) {
 
     return (
         <fieldset>
-            <label htmlFor="description">
+            {/* <label htmlFor="description">
                 Description
                 <textarea
                     id="description"
@@ -13,7 +13,7 @@ export default function ProfileInfo({ handleChange, inputs }) {
                     value={inputs.description}
                     onChange={handleChange}
                 />
-            </label>
+            </label> */}
         </fieldset>
     )
 }

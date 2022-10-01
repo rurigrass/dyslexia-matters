@@ -2,10 +2,10 @@ export default function PersonalInfo({ handleChange, inputs }) {
 
     return (
         <fieldset>
-            <label htmlFor="name">
+            {/* <label htmlFor="name">
                 First Name
                 <input
-                    required
+                    // required
                     type="text"
                     name="firstName"
                     placeholder="Your First Name"
@@ -17,7 +17,7 @@ export default function PersonalInfo({ handleChange, inputs }) {
             <label htmlFor="name">
                 Last Name
                 <input
-                    required
+                    // required
                     type="text"
                     name="lastName"
                     placeholder="Your Last Name"
@@ -25,7 +25,7 @@ export default function PersonalInfo({ handleChange, inputs }) {
                     value={inputs.lastName}
                     onChange={handleChange}
                 />
-            </label>
+            </label> */}
         </fieldset>
     )
 }

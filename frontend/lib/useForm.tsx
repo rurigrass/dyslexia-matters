@@ -12,9 +12,9 @@ type UserInputs = {
     userType?: string;
     email?: string;
     password?: string;
-    // firstName?: string;
-    // lastName?: string;
-    // description?: string;
+    firstName?: string;
+    lastName?: string;
+    description?: string;
     token?: string;
 };
 
