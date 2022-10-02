@@ -54,6 +54,7 @@ export default function SignIn() {
                 <label htmlFor="email">
                     Email
                     <input
+                        required
                         type="email"
                         name="email"
                         placeholder="Your Email Address"
@@ -65,6 +66,7 @@ export default function SignIn() {
                 <label htmlFor="password">
                     Password
                     <input
+                        required
                         type="password"
                         name="password"
                         placeholder="Password"
