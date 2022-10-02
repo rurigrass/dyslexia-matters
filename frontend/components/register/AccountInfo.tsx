@@ -36,7 +36,12 @@ export default function AccountInfo({ handleChange, inputs }) {
                     placeholder="Your Email Address"
                     autoComplete="email"
                     value={inputs.email}
-                    onChange={handleChange}
+                    onChange={
+                        // (e) => {
+                        handleChange
+                        // console.log(e.target.checkValidity());
+                        // }
+                    }
                 />
             </label>
             <label htmlFor="password">

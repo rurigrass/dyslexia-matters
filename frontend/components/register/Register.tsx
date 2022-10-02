@@ -27,7 +27,7 @@ const SIGNUP_MUTATION = gql`
 export default function Register() {
     const [page, setPage] = useState(0);
 
-    const { inputs, handleChange, resetForm } = useForm({
+    const { inputs, handleChange, resetForm, validations } = useForm({
         userType: "",
         userName: "",
         email: "",
@@ -62,26 +62,22 @@ export default function Register() {
         pageDisplay = <ProfileInfo handleChange={handleChange} inputs={inputs} />
     }
 
-    // function handleChange(e) {
-    //     console.log(e.target.checkValidity());
-    //     // handleChanges()
-
-    // }
 
 
+
+    console.log(validations);
 
     // console.log(inputs);
     // console.log(formTitles[page]);
 
     //function to ensure that all needed inputs are filled in to continue form. use checkvalidity()
-    formTitles[page].forEach(e => {
-        Object.keys(inputs).forEach(k => {
-            if (e === k && inputs[k]) return console.log(e + " the same as " + k);
-        })
-        // console.log(e);
-        // if (inputs.e)
-
-    })
+    // formTitles[page].forEach(e => {
+    //     Object.keys(inputs).forEach(k => {
+    //         if (e === k && inputs[k]) return console.log(e + " the same as " + k);
+    //     })
+    //     // console.log(e);
+    //     // if (inputs.e)
+    // })
 
     if (data?.createUser) {
         return (

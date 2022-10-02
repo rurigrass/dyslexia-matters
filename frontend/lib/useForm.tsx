@@ -23,12 +23,23 @@ type Inputs = ProductInputs & UserInputs;
 export default function useForm(initial: Inputs = {}) {
     //create a state object for our inputs
     const [inputs, setInputs] = useState(initial);
+    const [validations, setValidations] = useState(initial);
     const initialValues = Object.values(initial).join("");
 
     //This function runs when the things we are watching change
     useEffect(() => {
         setInputs(initial);
     }, [initialValues]);
+
+
+    // console.log("validation:");
+    // console.log(validations);
+
+    // console.log("inputs:");
+
+    // console.log(inputs);
+    // console.log(validation);
+
 
     // {
     //     name: 'wes',
@@ -51,6 +62,15 @@ export default function useForm(initial: Inputs = {}) {
             ...inputs,
             [name]: value
         })
+        //this checks validity of inputs, returns object of true and false keys
+        e.target.checkValidity() === true ?
+            setValidations({
+                ...validations,
+                [name]: true
+            }) : setValidations({
+                ...validations,
+                [name]: false
+            })
     }
 
     //reset form to initial state
@@ -71,6 +91,7 @@ export default function useForm(initial: Inputs = {}) {
         inputs,
         handleChange,
         resetForm,
-        clearForm
+        clearForm,
+        validations
     }
 }
