@@ -81,7 +81,14 @@ export default function Register() {
 
     //log below the result from above
     // console.log(getSliceValues(page));
-    const inputsValid = Object.values(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).every(value => value);
+    const inputsInPage = Object.values(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1])
+    const inputsValid = inputsInPage.every(value => value);
+    const inputsMissing = Object.keys(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).filter(key => !inputs[key])
+
+    // console.log(validations);
+    // console.log(inputsValid);
+    // console.log(inputsMissing);
+
 
 
     if (data?.createUser) {
@@ -90,14 +97,14 @@ export default function Register() {
         )
     }
 
-    console.log(missingInputs);
+    // console.log(Object.keys(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).filter(key => !inputs[key]));
 
 
     return (
         <Form method="POST" onSubmit={handleSubmit}>
             <h2>Sign Up for an Account</h2>
             <DisplayError error={error} />
-            {missingInputs === true ? <MissingInputs inputs={validations} prevCounter={getSliceValues(page)[0]} counter={getSliceValues(page)[1]} /> : null}
+            {missingInputs === true ? <MissingInputs inputsMissing={inputsMissing} /> : null}
             <div>{pageDisplay}</div>
             <div>
                 <button

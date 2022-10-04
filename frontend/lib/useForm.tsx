@@ -61,6 +61,7 @@ export default function useForm(initial: Inputs = {}) {
                 ...validations,
                 [name]: false
             })
+
     }
 
     //reset form to initial state

@@ -5,7 +5,7 @@ export default function PersonalInfo({ handleChange, inputs }) {
             <label htmlFor="name">
                 First Name
                 <input
-                    // required
+                    required
                     type="text"
                     name="firstName"
                     placeholder="Your First Name"
