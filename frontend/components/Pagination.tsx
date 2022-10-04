@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import Head from "next/head";
 import Link from "next/link"
-import DisplayError from "./ErrorMessage";
+import { DisplayError } from "./ErrorMessage";
 import PaginationStyles from "./styles/PaginationStyles";
 import { perPage } from "../config";
 

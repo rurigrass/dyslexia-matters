@@ -1,7 +1,5 @@
 export default function ProfileInfo({ handleChange, inputs }) {
 
-    console.log(inputs);
-
     return (
         <fieldset>
             {/* <label htmlFor="description">

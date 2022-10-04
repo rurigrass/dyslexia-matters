@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import { perPage } from "../config";
-import DisplayError from "./ErrorMessage";
+import { DisplayError } from "./ErrorMessage";
 import Product from "./Product";
 
 export const ALL_PRODUCTS_QUERY = gql`

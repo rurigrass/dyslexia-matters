@@ -18,7 +18,7 @@ const ErrorStyles = styled.div`
   }
 `;
 
-const DisplayError = ({ error }) => {
+export function DisplayError({ error }) {
   if (!error || !error.message) return null;
   if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
     return error.networkError.result.errors.map((error, i) => (
@@ -48,4 +48,19 @@ DisplayError.propTypes = {
   error: PropTypes.object,
 };
 
-export default DisplayError;
+export function MissingInputs({inputs, prevCounter, counter}) {
+  //this is working and inputs is returning the missing inputs from this page
+  console.log(Object.keys(inputs).slice(prevCounter, counter).filter(key => !inputs[key]));
+
+  return (
+    <ErrorStyles>
+      <p data-test="input-error">
+        <strong>Shoot!</strong>
+        missing inputs:
+        {inputs.map}
+      </p>
+    </ErrorStyles>
+  )
+}
+
+// export default DisplayError and MissingInputs;

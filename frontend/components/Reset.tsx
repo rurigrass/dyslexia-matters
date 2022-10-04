@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
 import useForm from "../lib/useForm";
-import DisplayError from "./ErrorMessage";
+import { DisplayError } from "./ErrorMessage";
 import Form from "./styles/Form";
 
 const RESET_MUTATION = gql`

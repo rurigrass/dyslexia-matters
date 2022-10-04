@@ -31,16 +31,6 @@ export default function useForm(initial: Inputs = {}) {
         setInputs(initial);
     }, [initialValues]);
 
-
-    // console.log("validation:");
-    // console.log(validations);
-
-    // console.log("inputs:");
-
-    // console.log(inputs);
-    // console.log(validation);
-
-
     // {
     //     name: 'wes',
     //     description: 'nice shoes',

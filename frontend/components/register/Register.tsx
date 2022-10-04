@@ -6,7 +6,7 @@ import ProfileInfo from "./ProfileInfo";
 import { useState } from "react";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
-import DisplayError from "../ErrorMessage";
+import { DisplayError, MissingInputs } from "../ErrorMessage";
 
 const SIGNUP_MUTATION = gql`
     mutation SIGNUP_MUTATION ($userName: String!, $userType: String!, $email: String!, $password: String!) {
@@ -26,7 +26,9 @@ const SIGNUP_MUTATION = gql`
 
 export default function Register() {
     const [page, setPage] = useState(0);
+    const [missingInputs, setMissingInputs] = useState(false)
 
+    //these have to be in order of appearance
     const { inputs, handleChange, resetForm, validations } = useForm({
         userType: "",
         userName: "",
@@ -45,9 +47,9 @@ export default function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const res = await signup().catch(console.error);
-        console.log(res);
-        resetForm();
+        // const res = 
+        await signup().catch(console.error);
+        // resetForm();
         // Send the email and password to the graphql API
     }
 
@@ -63,35 +65,24 @@ export default function Register() {
     }
 
 
-
-
-    // console.log(validations);
-    //page 0 need to get 0 and 4
-    console.log(page, formTitles[page].length);
-    console.log(Object.values(validations));
-    console.log(inputs);
-
-
-
-    //page 1 should return 5 and 6
-
-    console.log(Object.values(validations).slice(page, formTitles[page].length).every(value => value));
-    // console.log(Object.values(validations).every(value => value));
-
     //CHECK WHAT VALUES ARE NOT FILLED IN YET AND RETURN ERROR
+    //returns numbers to slice necessary formTitles e.g. returns 0,4 to slice out formTitles from page 0
+    // let cunning
+    function getSliceValues(page) {
+        let [prevCounter, counter] = [0, 0]
+        for (let i = 0; i <= page; i++) {
+            // cunning = counter + formTitles[i].length
+            counter = counter + formTitles[i].length
+            prevCounter = counter - formTitles[i].length
+        }
+        return [prevCounter, counter]
+    }
+    // let [prevCounter, counter] = [getSliceValues(page)[0], getSliceValues(page)[1]]
 
+    //log below the result from above
+    // console.log(getSliceValues(page));
+    const inputsValid = Object.values(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).every(value => value);
 
-    // console.log(inputs);
-    // console.log(formTitles[page]);
-
-    //function to ensure that all needed inputs are filled in to continue form. use checkvalidity()
-    // formTitles[page].forEach(e => {
-    //     Object.keys(inputs).forEach(k => {
-    //         if (e === k && inputs[k]) return console.log(e + " the same as " + k);
-    //     })
-    //     // console.log(e);
-    //     // if (inputs.e)
-    // })
 
     if (data?.createUser) {
         return (
@@ -99,11 +90,14 @@ export default function Register() {
         )
     }
 
+    console.log(missingInputs);
+
 
     return (
         <Form method="POST" onSubmit={handleSubmit}>
             <h2>Sign Up for an Account</h2>
-            <DisplayError error={error}></DisplayError>
+            <DisplayError error={error} />
+            {missingInputs === true ? <MissingInputs inputs={validations} prevCounter={getSliceValues(page)[0]} counter={getSliceValues(page)[1]} /> : null}
             <div>{pageDisplay}</div>
             <div>
                 <button
@@ -119,11 +113,12 @@ export default function Register() {
                     <button type="submit">Sign Up ⬆</button>
                     : <button
                         onClick={(e) => {
-                            if (page === formTitles.length - 1) {
-                                alert("FORM SUBMITTED");
-                            } else {
+                            if (inputsValid === true) {
                                 e.preventDefault()
+                                setMissingInputs(false)
                                 setPage((currPage) => currPage + 1);
+                            } else {
+                                setMissingInputs(true)
                             }
                         }}
                     >
