@@ -32,7 +32,7 @@ export default function Register() {
         userName: "",
         email: "",
         password: "",
-        // firstName: "",
+        firstName: "",
         // lastName: "",
         // description: ""
     });
@@ -65,7 +65,21 @@ export default function Register() {
 
 
 
-    console.log(validations);
+    // console.log(validations);
+    //page 0 need to get 0 and 4
+    console.log(page, formTitles[page].length);
+    console.log(Object.values(validations));
+    console.log(inputs);
+
+
+
+    //page 1 should return 5 and 6
+
+    console.log(Object.values(validations).slice(page, formTitles[page].length).every(value => value));
+    // console.log(Object.values(validations).every(value => value));
+
+    //CHECK WHAT VALUES ARE NOT FILLED IN YET AND RETURN ERROR
+
 
     // console.log(inputs);
     // console.log(formTitles[page]);
