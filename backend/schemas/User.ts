@@ -1,5 +1,11 @@
 import { list } from '@keystone-next/keystone/schema';
-import { text, password, relationship, select } from '@keystone-next/fields';
+import {
+  text,
+  password,
+  relationship,
+  select,
+  // multiselect,
+} from '@keystone-next/fields';
 
 export const User = list({
   // access:
@@ -37,6 +43,7 @@ export const User = list({
     // }),
     password: password(),
     // TODO add (roles, cart and orders) subject, days etc , photo too
+    // subjects: multiselect(),
   },
   ui: {
     listView: {
