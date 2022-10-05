@@ -77,28 +77,21 @@ export default function Register() {
         }
         return [prevCounter, counter]
     }
-    // let [prevCounter, counter] = [getSliceValues(page)[0], getSliceValues(page)[1]]
 
     //log below the result from above
     // console.log(getSliceValues(page));
     const inputsInPage = Object.values(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1])
     const inputsValid = inputsInPage.every(value => value);
-    const inputsMissing = Object.keys(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).filter(key => !inputs[key])
-
+    const inputsMissing = Object.keys(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).filter(key => !validations[key])
     // console.log(validations);
     // console.log(inputsValid);
     // console.log(inputsMissing);
-
-
 
     if (data?.createUser) {
         return (
             <p>Signed up with {data.createUser.email} - Please go ahead and sign in here <button><a href="/signin">Sign In</a></button></p>
         )
     }
-
-    // console.log(Object.keys(validations).slice(getSliceValues(page)[0], getSliceValues(page)[1]).filter(key => !inputs[key]));
-
 
     return (
         <Form method="POST" onSubmit={handleSubmit}>
