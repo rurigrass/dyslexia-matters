@@ -1,7 +1,3 @@
-import React from 'react';
+import { getItemPage } from '@keystone-6/core/___internal-do-not-use-will-break-in-patch/admin-ui/pages/ItemPage';
 
-import { ItemPage } from '@keystone-next/admin-ui/pages/ItemPage';
-
-export default function Item() {
-  return <ItemPage listKey="User" />;
-}
+export default getItemPage({"listKey":"User"})

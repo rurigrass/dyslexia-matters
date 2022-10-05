@@ -1,5 +1,5 @@
-import { list } from '@keystone-next/keystone/schema';
-import { integer, select, text } from '@keystone-next/fields';
+import { list } from '@keystone-6/core';
+import { integer, select, text } from '@keystone-6/core/fields';
 
 export const Lesson = list({
   // TODO
@@ -9,7 +9,7 @@ export const Lesson = list({
     // tutor: relationship({
     //   ref: 'User.name',
     // }),
-    subject: text({ isRequired: true }),
+    subject: text({ validation: { isRequired: true } }),
     level: select({
       options: [
         { label: 'GCSE', value: 'GCSE' },
@@ -18,7 +18,7 @@ export const Lesson = list({
       // isRequired: true
     }),
     description: text({
-      isRequired: true,
+      validation: { isRequired: true },
       ui: {
         displayMode: 'textarea',
       },

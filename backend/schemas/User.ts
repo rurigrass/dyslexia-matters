@@ -1,23 +1,23 @@
-import { list } from '@keystone-next/keystone/schema';
+import { list } from '@keystone-6/core';
 import {
   text,
   password,
   relationship,
   select,
   // multiselect,
-} from '@keystone-next/fields';
+} from '@keystone-6/core/fields';
 
 export const User = list({
   // access:
   // ui
   fields: {
     // name: text({ isRequired: true, isUnique: true }),
-    userName: text({ isRequired: true, isUnique: true }),
-    // firstName: text({ isRequired: true }),
-    // lastName: text({ isRequired: true }),
-    email: text({ isRequired: true, isUnique: true }),
+    userName: text({ validation: { isRequired: true }, isIndexed: 'unique' }),
+    // firstName: text({ validation: { isRequired: true } }),
+    // lastName: text({ validation: { isRequired: true } }),
+    email: text({ validation: { isRequired: true }, isIndexed: 'unique' }),
     userType: select({
-      isRequired: true,
+      validation: { isRequired: true },
       options: [
         { label: 'Tutor', value: 'Tutor' },
         { label: 'Student', value: 'Student' },

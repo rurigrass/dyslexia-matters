@@ -1,9 +1,9 @@
-import { list } from '@keystone-next/keystone/schema';
-import { integer, select, text, relationship } from '@keystone-next/fields';
+import { list } from '@keystone-6/core';
+import { integer, select, text, relationship } from '@keystone-6/core/fields';
 
 export const Product = list({
   fields: {
-    name: text({ isRequired: true }),
+    name: text({ validation: { isRequired: true } }),
     description: text({
       ui: {
         displayMode: 'textarea',

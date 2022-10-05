@@ -1,7 +1,3 @@
-import React from 'react';
+import { getListPage } from '@keystone-6/core/___internal-do-not-use-will-break-in-patch/admin-ui/pages/ListPage';
 
-import { ListPage } from '@keystone-next/admin-ui/pages/ListPage';
-
-export default function List() {
-  return <ListPage listKey="Lesson" />;
-}
+export default getListPage({"listKey":"Lesson"});
