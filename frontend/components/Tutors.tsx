@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const ALL_USERS_QUERY = gql`
  query ALL_USERS_QUERY {
-  allUsers(where: {
+  users(where: {
     userType: "Tutor"
   }) {
     id

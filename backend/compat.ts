@@ -14,8 +14,8 @@ export function addCompatibilityForQueries(schema: GraphQLSchema) {
     ...queryTypeConfig,
     fields: {
       ...queryTypeConfig.fields,
-      // allOrders: queryTypeConfig.fields.orders,
-      // Order: queryTypeConfig.fields.order,
+      allOrders: queryTypeConfig.fields.orders,
+      Order: queryTypeConfig.fields.order,
       Product: queryTypeConfig.fields.product,
       _allProductsMeta: {
         type: new GraphQLObjectType({
