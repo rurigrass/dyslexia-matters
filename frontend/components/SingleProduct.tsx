@@ -1,8 +1,9 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import Head from "next/head";
-import DisplayError from "./ErrorMessage";
+import { DisplayError } from "./ErrorMessage";
 import styled from 'styled-components';
+import { useProductQuery } from "../types/generated-queries";
 
 const ProductStyles = styled.div`
     display: grid;
@@ -19,9 +20,9 @@ const ProductStyles = styled.div`
 
 const SINGLE_PRODUCT_QUERY = gql`
     query SINGLE_PRODUCT_QUERY($id: ID!) {
-        Product(where: {
-            id: $id
-        }) {
+        products(
+            where: {id: {equals: $id}}
+        ) {
     name
     price
     description
@@ -37,21 +38,29 @@ const SINGLE_PRODUCT_QUERY = gql`
 `
 
 export default function SingleProduct({ id }) {
-    const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, { variables: { id } });
+    // const { data, loading, error } = useProductQuery({ variables: { id } });
+    const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, {
+        variables: {
+            id
+        },
+    });
     if (loading) return <p></p>
     if (error) return <DisplayError error={error} />
-    const { Product } = data
+
+    const product = data.products[0]
+    // console.log(products);
+
     return (
         <ProductStyles>
             <Head>
-                <title>Dyslexia Matters | {Product.name}</title>
+                <title>Dyslexia Matters | {product.name}</title>
             </Head>
             <img
-                src={Product.photo.image.publicUrlTransformed}
-                alt={Product.photo.altText} />
+                src={product.photo.image.publicUrlTransformed}
+                alt={product.photo.altText} />
             <div className="details">
-                <h2>{Product.name}</h2>
-                <p>{Product.description}</p>
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
             </div>
         </ProductStyles>
     )

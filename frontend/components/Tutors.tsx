@@ -4,16 +4,15 @@ import styled from "styled-components";
 
 const ALL_USERS_QUERY = gql`
  query ALL_USERS_QUERY {
-  users(where: {
-    userType: "Tutor"
-  }) {
-    id
+  users
+   (where: {userType: {equals: "Tutor"}} )
+  {
     userName
     email
     userType
-    photo{
+    photo {
       id
-      image{
+      image {
         publicUrlTransformed
       }
     }
@@ -24,8 +23,6 @@ const TutorListStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 60px;
-
-  
 `
 
 export default function Users() {
@@ -35,7 +32,7 @@ export default function Users() {
   if (error) return <p>Error: {error.message}</p>
   return <div>
     <TutorListStyles>
-      {data.allUsers.map((user, key) =>
+      {data.users.map((user, key) =>
         <div key={key}>
           <p>{user.userName}</p>
         </div>)}

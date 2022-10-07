@@ -91,9 +91,7 @@ function makePaginationMocksFor(length) {
       request: { query: PAGINATION_QUERY },
       result: {
         data: {
-          _allProductsMeta: {
-            count: length,
-          },
+          productsCount,
           itemsConnection: {
             __typename: 'aggregate',
             aggregate: {

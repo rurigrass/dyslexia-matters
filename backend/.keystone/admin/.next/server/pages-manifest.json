@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
+  "/products/[id]": "pages/products/[id].js",
   "/api/__keystone_api_build": "pages/api/__keystone_api_build.js"
 }
