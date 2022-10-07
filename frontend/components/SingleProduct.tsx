@@ -19,22 +19,21 @@ const ProductStyles = styled.div`
 `
 
 const SINGLE_PRODUCT_QUERY = gql`
-    query SINGLE_PRODUCT_QUERY($id: ID!) {
-        products(
-            where: {id: {equals: $id}}
-        ) {
-    name
-    price
-    description
-    id
-    photo {
-            altText
+    query SINGLE_ITEM_QUERY($id: ID!) {
+    product(where: { id: $id }) {
+      name
+      price
+      description
+      id
+      photo {
+        id
+        altText
         image {
-            publicUrlTransformed
+          publicUrlTransformed
         }
+      }
     }
   }
-}
 `
 
 export default function SingleProduct({ id }) {
@@ -47,8 +46,8 @@ export default function SingleProduct({ id }) {
     if (loading) return <p></p>
     if (error) return <DisplayError error={error} />
 
-    const product = data.products[0]
-    // console.log(products);
+    const { product } = data
+    console.log(product);
 
     return (
         <ProductStyles>
