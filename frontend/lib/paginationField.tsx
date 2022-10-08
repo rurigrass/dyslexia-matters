@@ -4,27 +4,27 @@ export default function paginationField() {
     return {
         keyArgs: false, // tells apollo we will take care of everything
         read(existing = [], { args, cache }) {
-            // console.log({ existing, args, cache });
-            const { skip, first } = args;
+            console.log({ existing, args, cache });
+            const { skip, take } = args;
 
             // Read the number of items on the page from the cache
             const data = cache.readQuery({ query: PAGINATION_QUERY });
             const count = data?._allProductsMeta?.count;
-            const page = skip / first + 1;
-            const pages = Math.ceil(count / first);
+            const page = skip / take + 1;
+            const pages = Math.ceil(count / take);
 
             // Check if we have existing items
-            const items = existing.slice(skip, skip + first).filter((x) => x);
+            const items = existing.slice(skip, skip + take).filter((x) => x);
             // If
             // There are items
             // AND there aren't enough items to satisfy how many were requested
             // AND we are on the last page
             // THEN JUST SEND IT
 
-            if (items.length && items.length !== first && page === pages) {
+            if (items.length && items.length !== take && page === pages) {
                 return items;
             }
-            if (items.length !== first) {
+            if (items.length !== take) {
                 // We don't have any items, we must go to the network to fetch them
                 return false;
             }
@@ -45,7 +45,7 @@ export default function paginationField() {
             // The other thing we can do is to return false from here, (network request)
         },
         merge(existing, incoming, { args }) {
-            const { skip, first } = args;
+            const { skip, take } = args;
             // This runs when the Apollo client comes back from the network with our product
             // console.log(`MErging items from the network ${incoming.length}`);
             const merged = existing ? existing.slice(0) : [];
