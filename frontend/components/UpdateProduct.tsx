@@ -7,7 +7,7 @@ import useForm from "../lib/useForm"
 //1. We need to get the exiting product
 const SINGLE_PRODUCT_QUERY = gql`
      query SINGLE_PRODUCT_QUERY($id: ID!) {
-        Product(where: {
+        product(where: {
             id: $id
         }) {
     name
@@ -33,7 +33,7 @@ const UPDATE_PRODUCT_MUTATION = gql`
         $price: Int
     ) {
         updateProduct(
-            id: $id
+            where: {id: $id}
             data: {
                 name: $name,
                 description: $description,
@@ -51,12 +51,16 @@ const UPDATE_PRODUCT_MUTATION = gql`
 export default function UpdateProduct({ id }) {
     //1. We need to get the exiting product
     const { data, loading, error } = useQuery(SINGLE_PRODUCT_QUERY, { variables: { id } });
+    console.log(data);
 
-    //2. we need to get the mutation to update the product
+
+    //2. we need to get the mutation to update the product 
     const [updateProduct, { data: updateData, loading: updateLoading, error: updateError }] = useMutation(UPDATE_PRODUCT_MUTATION)
 
+
+
     //2.5create a state for the form inputs
-    const { inputs, handleChange, resetForm, clearForm } = useForm(data?.Product)
+    const { inputs, handleChange, resetForm, clearForm } = useForm(data?.product)
     if (loading) return <p>loading...</p>
 
     //3. We need the form to handle the updates

@@ -15,20 +15,18 @@ export const PAGINATION_QUERY = gql`
 export default function Pagination({ page }) {
   const { data, loading, error } = useQuery(PAGINATION_QUERY);
 
-  // console.log(data.count);
 
   if (loading) return <p>'Loading...'</p>;
   if (error) return <DisplayError error={error} />
   const count = data.productsCount;
   const pageCount = Math.ceil(count / perPage)
-  console.log(pageCount);
   return (
     <PaginationStyles>
       <Head>Dyslexia Matters - Page {page} of ___</Head>
-      {/* <Link href={`/products/${page - 1}`} ><a aria-disabled={page <= 1}>⬅ Prev</a></Link>
+      <Link href={`/products/${page - 1}`} ><a aria-disabled={page <= 1}>⬅ Prev</a></Link>
       <p> Page {page} of {pageCount}</p>
       <p> {count} Items Total</p>
-      <Link href={`/products/${page + 1}`}><a aria-disabled={page >= pageCount}>Next ⮕</a></Link> */}
+      <Link href={`/products/${page + 1}`}><a aria-disabled={page >= pageCount}>Next ⮕</a></Link>
     </PaginationStyles >
   )
 }

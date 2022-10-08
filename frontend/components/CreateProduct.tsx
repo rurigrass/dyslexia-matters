@@ -42,7 +42,7 @@ export default function CreateProduct() {
         price: 0,
         description: ''
     })
-    const [createProduct, { loading, error, data }] = useMutation(CREATE_PRODUCT_MUTATION, {
+    const [createProduct, { data, loading, error }] = useMutation(CREATE_PRODUCT_MUTATION, {
         variables: inputs,
         refetchQueries: [{ query: ALL_PRODUCTS_QUERY }]
     });

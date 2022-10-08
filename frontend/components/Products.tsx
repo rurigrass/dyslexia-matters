@@ -6,8 +6,8 @@ import { DisplayError } from "./ErrorMessage";
 import Product from "./Product";
 
 export const ALL_PRODUCTS_QUERY = gql`
-  query ALL_PRODUCTS_QUERY($skip: Int = 0, $first: Int) {
-  products(skip: $skip, first: $first) {
+  query ALL_PRODUCTS_QUERY($skip: Int = 0, $take: Int) {
+  products( skip: $skip, take: $take) {
     id
     name
     price
@@ -25,17 +25,16 @@ const ProductListStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 60px;
-
-  
 `
 
 export default function Products({ page }) {
-  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, { variables: { skip: page * perPage - perPage, first: perPage } });
+  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, { variables: { skip: page * perPage - perPage, take: perPage } });
   if (loading) return <p>Loading...</p>
   if (error) return <DisplayError error={error} />
+
   return <div>
     <ProductListStyles>
-      {data.allProducts.map((product) =>
+      {data.products.map((product) =>
         <Product key={product.id} product={product} />)}
     </ProductListStyles>
   </div>
