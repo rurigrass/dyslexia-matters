@@ -3,5 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/api/__keystone_api_build": "pages/api/__keystone_api_build.js",
-  "/lessons": "pages/lessons.js"
+  "/users": "pages/users.js",
+  "/users/[id]": "pages/users/[id].js"
 }

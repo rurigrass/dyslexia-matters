@@ -4,7 +4,7 @@ import {
   password,
   relationship,
   select,
-  // multiselect,
+  multiselect,
 } from '@keystone-6/core/fields';
 
 export const User = list({
@@ -36,6 +36,15 @@ export const User = list({
         inlineCreate: { fields: ['image', 'altText'] },
         inlineEdit: { fields: ['image', 'altText'] },
       },
+    }),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    subjects: multiselect({
+      type: 'string',
+      options: [
+        { label: 'Maths', value: 'maths' },
+        { label: 'English', value: 'english' },
+        { label: 'Biology', value: 'biology' },
+      ],
     }),
     //
     // lessons: relationship({

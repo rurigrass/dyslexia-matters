@@ -1,12 +1,14 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import styled from "styled-components";
+import Tutor from "./Tutor";
 
 const ALL_USERS_QUERY = gql`
  query ALL_USERS_QUERY {
   users
    (where: {userType: {equals: "Tutor"}} )
   {
+    id
     userName
     email
     userType
@@ -33,9 +35,11 @@ export default function Users() {
   return <div>
     <TutorListStyles>
       {data.users.map((user, key) =>
-        <div key={key}>
-          <p>{user.userName}</p>
-        </div>)}
+        // <div key={key}>
+        //   <p>{user.userName}</p>
+        // </div>
+        <Tutor key={key} tutor={user} />
+      )}
     </TutorListStyles>
   </div>
 }
