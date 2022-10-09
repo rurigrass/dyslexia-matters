@@ -37,7 +37,6 @@ export const User = list({
         inlineEdit: { fields: ['image', 'altText'] },
       },
     }),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     subjects: multiselect({
       type: 'string',
       options: [
